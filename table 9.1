@@ -1,0 +1,16 @@
+tab9.1<-read.xlsx2(file.choose(), sheetIndex=1, colClasses = c("character",rep("numeric",10)))
+dim(tab9.1)
+head(tab9.1)
+
+colnames(tab9.1) = tab9.1[2, ]
+ 
+
+ProfessionalandRelated<- tab9.1[10:32, ]
+ProfessionalandRelated<- cbind(ProfessionalandRelated[ ,1], ProfessionalandRelated[ ,2:11]*1000)
+
+ManagementvsProfessional<-tab9.1[8:9, ]
+ManagementvsProfessional<-cbind(ManagementvsProfessional[ ,1],ManagementvsProfessional[2:11]*1000)
+
+MgmtandProfvsOther<-tab9.1[6, ]
+MgmtandProfvsOther<-rbind(MgmtandProfvsOther,tab9.1[33, ])
+MgmtandProfvsOther<-cbind(MgmtandProfvsOther[ ,1],MgmtandProfvsOther[2:11]*1000)
