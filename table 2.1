@@ -1,0 +1,23 @@
+tab2.1<-read.xlsx(file.choose(), sheetIndex=1)
+dim(tab2.1)
+head(tab2.1)
+
+colnames(tab2.1) = tab2.1[1, ]
+tab2.1 = tab2.1[-1, ]  
+tab2.1[ ,13]<-NULL
+tab2.1[ ,13]<-NULL
+
+
+EnrollmentbyRace<- tab2.1[5:11, ]
+
+
+female<-tab2.1[15:21, ]
+female$gender<- "female"
+
+male<-tab2.1[24:31, ]
+male$gender<- "male"
+
+EnrollmentbyGender<-rbind(female,male)
+
+#two tables to use EnrollmentbyRace with all genders
+#and enrollment by gender and race
